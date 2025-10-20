@@ -1,0 +1,107 @@
+---
+import Layout from "@/layouts/default.astro"
+
+const app = {
+	name: "Open Communication",
+	slug: "open-communication",
+	description: "Secure peer-to-peer communication and data sharing.",
+	icon: "💬",
+	features: [
+		{
+			title: "End-to-End Encryption",
+			description: "All messages and files are encrypted end-to-end. Only you and your recipient can read them."
+		},
+		{
+			title: "P2P Architecture",
+			description: "Direct peer-to-peer connections mean faster data transfer and no central server bottlenecks."
+		},
+		{
+			title: "File Sharing",
+			description: "Share files of any size directly with others without upload limits or third-party storage."
+		},
+		{
+			title: "Cross-Platform",
+			description: "Works seamlessly across desktop, mobile, and web platforms."
+		},
+		{
+			title: "No Registration Required",
+			description: "Start communicating immediately without creating an account or providing personal information."
+		},
+		{
+			title: "Offline Support",
+			description: "Queue messages and files for sending when you're back online."
+		}
+	],
+	techStack: ["TypeScript", "WebRTC", "Electron", "React Native", "IPFS"],
+	status: "Alpha"
+}
+---
+
+<Layout>
+	<article class="py-8 md:py-12 lg:py-16 max-w-5xl mx-auto" >
+		<a href="/applications" class="text-violet-500 hover:text-violet-600 text-sm font-medium inline-block mb-6">
+			← Back to Applications
+		</a>
+
+		<div class="flex items-center gap-4 mb-6">
+			<span class="text-6xl md:text-7xl">{app.icon}</span>
+			<div>
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-serif" >{app.name}</h1>
+				<span class="inline-block mt-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold">
+					{app.status}
+				</span>
+			</div>
+		</div>
+
+		<p class="text-xl md:text-2xl text-gray-700 mb-8 font-serif">
+			{app.description}
+		</p>
+
+		<div class="prose prose-lg max-w-none mb-12">
+			<h2 class="text-3xl font-bold font-serif mb-4">About</h2>
+			<p class="text-gray-700 leading-relaxed">
+				Open Communication is a revolutionary peer-to-peer communication platform that puts privacy and security first. Unlike traditional messaging apps that route your data through central servers, Open Communication connects you directly with other users.
+			</p>
+			<p class="text-gray-700 leading-relaxed">
+				Built on cutting-edge WebRTC and IPFS technologies, our platform ensures that your conversations remain private and your data stays under your control. No company can access your messages, and no government can compel us to hand over data we don't have.
+			</p>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="text-3xl font-bold font-serif mb-6">Key Features</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{
+					app.features.map(feature => (
+						<div class="border-2 border-gray-200 rounded-lg p-6 hover:border-violet-500 transition-colors">
+							<h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+							<p class="text-gray-600">{feature.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="text-3xl font-bold font-serif mb-4">Tech Stack</h2>
+			<div class="flex flex-wrap gap-3">
+				{
+					app.techStack.map(tech => (
+						<span class="px-4 py-2 bg-gray-100 rounded-full text-gray-700 font-medium">
+							{tech}
+						</span>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="flex flex-col sm:flex-row gap-4">
+			<a href="#" class="bg-violet-500 hover:bg-violet-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+				Get Started
+			</a>
+			<a href="#" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+				View on GitHub
+			</a>
+		</div>
+	</article>
+</Layout>
+

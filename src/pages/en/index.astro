@@ -4,6 +4,7 @@ import Layout from "@/layouts/default.astro"
 const programs = [
 	{
 		name: "Open Documentation",
+		slug: "open-documentation",
 		description: "Create and share beautiful, collaborative documentation with ease.",
 		details: "Build comprehensive knowledge bases, user guides, and technical documentation. Our open-source platform enables teams to collaborate in real-time, version control your docs, and publish them instantly. Perfect for developers, technical writers, and organizations of all sizes.",
 		color: "bg-[#28272C]",
@@ -11,6 +12,7 @@ const programs = [
 	},
 	{
 		name: "Open Communication",
+		slug: "open-communication",
 		description: "Secure peer-to-peer communication and data sharing.",
 		details: "Connect directly with others without intermediaries. Share data, messages, and files across applications using our decentralized P2P protocol. Your data stays private and secure, with end-to-end encryption and no central servers storing your information.",
 		color: "bg-gray-100",
@@ -18,6 +20,7 @@ const programs = [
 	},
 	{
 		name: "Open Market",
+		slug: "open-market",
 		description: "Decentralized marketplace powered by blockchain technology.",
 		details: "Buy and sell with confidence on our P2P marketplace. Every transaction is secured and verified on the blockchain, ensuring transparency and trust. No middlemen, lower fees, and complete control over your digital commerce experience.",
 		color: "bg-gray-300",
@@ -42,10 +45,16 @@ const programs = [
 		<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 h-auto" >
 			{
 				programs.map( program => {
-					return <li class={program.color + " p-4 md:p-6 rounded-xl min-h-60 md:min-h-72 lg:min-h-80 border-2 border-gray-200 hover:border-violet-500 transition-all duration-300 flex flex-col gap-3" } >
+					return <li class={program.color + " p-4 md:p-6 rounded-xl min-h-60 md:min-h-72 lg:min-h-80 border-2 border-gray-200 hover:border-violet-500 transition-all duration-300 flex flex-col gap-3 relative overflow-hidden group" } >
 						<span class={program.textColor + " text-xl md:text-2xl font-bold font-serif" } >{program.name}</span>
 						<p class={program.textColor + " font-semibold text-sm md:text-base" } >{program.description}</p>
-						<p class={program.textColor + " text-xs md:text-sm opacity-80" } >{program.details}</p>
+						<p class={program.textColor + " text-xs md:text-sm opacity-80 group-hover:opacity-60 transition-opacity" } >{program.details}</p>
+						
+						<div class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+							<a href={`/applications/${program.slug}`} class="bg-violet-500 hover:bg-violet-600 text-white px-6 py-3 rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300 shadow-lg hover:shadow-xl">
+								Learn More
+							</a>
+						</div>
 					</li>
 				})
 			}

@@ -9,8 +9,8 @@ const links = [
         title: "Accueil"
     },
     {
-        href: "/",
-        title: "Logiciels"
+        href: "/applications",
+        title: "Applications"
     }
 ]
 ---
@@ -24,7 +24,7 @@ const links = [
 		<title>{AppName}</title>
 	</head>
 	<body class="h-screen w-screen overflow-y-auto overflow-x-hidden" >
-        <header class="fixed px-4 md:px-10 lg:px-20 py-4 right-0 left-0 top-0 flex flex-row items-center" >
+        <header class="fixed px-4 md:px-10 lg:px-20 py-4 right-0 left-0 top-0 flex flex-row items-center bg-white/80 backdrop-blur-md z-50 border-b border-gray-200" >
             <h1 class="text-lg md:text-xl font-bold font-serif" >Thirdshop</h1>
 
             <nav class="mx-auto " >
@@ -39,11 +39,10 @@ const links = [
                 </ul>
             </nav>
         </header>
-        <hr class="border-gray-200 from-gray-100 to-gray-200 h-1 w-full" >
-		<main class="px-4 md:px-10 lg:px-20 py-8 md:py-12 lg:py-16 h-full w-full" >
+		<main class="px-4 md:px-10 lg:px-20 py-8 md:py-12 lg:py-16 pt-24 md:pt-28 h-full w-full" >
             <slot></slot>
         </main>
-        <footer class="fixed bottom-0 left-0 right-0 px-4 md:px-8 py-4" >
+        <footer class="fixed bottom-0 left-0 right-0 px-4 md:px-8 py-4 bg-white/80 backdrop-blur-md border-t border-gray-200" >
             <p class="text-center text-xs md:text-sm text-gray-500" >Copyright &copy; 2025 Thirdshop. All rights reserved.</p>
         </footer>
 	</body>
