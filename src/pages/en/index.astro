@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/default.astro"
+
+const programs = [
+	{
+		name: "Open Documentation",
+		description: "Create documentation",
+		color: "bg-[#28272C]",
+		textColor: "text-white"
+	},
+	{
+		name: "Open Communication",
+		description: "Share data cross applications P2P",
+		color: "bg-gray-100",
+		textColor: "text-black"
+	},
+	{
+		name: "Open Market",
+		description: "P2P marketplace sync with the blocchain",
+		color: "bg-gray-300",
+		textColor: "text-black"
+	},
+]
+---
+
+<Layout>
+
+	<section class="py-16 gap-8 flex flex-col" >
+		<h2 class="text-8xl font-semibold font-serif" >
+			Free, Open Source, P2P Applications, for everyone.
+		</h2>
+		<div class="flex flex-row gap-4" >
+			<p class="font-serif" >Thirdshop is a organization that creates and shares documentation, communication, and marketplace applications. We believe in the power of <strong class="font-bold" >open source</strong> and the importance of community. <strong class="font-bold" >P2P applications</strong> are the future of the internet and we are here to make it happen.</p>
+			<a href="/" class="bg-violet-500 text-white px-4 py-2 rounded-md text-nowrap flex justify-center items-center" >Join the community</a>
+		</div>
+	</section>
+
+	<section class="mt-auto" >
+		<ul class="grid grid-cols-3 gap-8 h-auto" >
+			{
+				programs.map( program => {
+					return <li class={program.color + " p-4 rounded-xl h-80 border-2 border-gray-200" } >
+						<span class={program.textColor + " text-2xl font-bold font-serif" } >{program.name}</span>
+						<p class={program.textColor} >{program.description}</p>
+					</li>
+				})
+			}
+		</ul>
+	</section>
+</Layout>

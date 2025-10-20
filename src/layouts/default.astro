@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+
+const AppName = "Thirdshop";
+
+const links = [
+    {
+        href: "/",
+        title: "Accueil"
+    },
+    {
+        href: "/",
+        title: "Logiciels"
+    }
+]
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{AppName}</title>
+	</head>
+	<body class="h-screen w-screen overflow-hidden" >
+        <header class="fixed px-8 py-4 right-0 left-0 top-0 flex flex-row" >
+            <h1 class="text-xl font-bold font-serif" >Thirdshop</h1>
+
+            <nav class="mx-auto " >
+                <ul class="flex flex-row gap-8" >
+                    {
+                        links.map(link => {
+                            return <li>
+                                <a href={link.href} class="mouse-pointer hover:underline focus:underline" >{link.title}</a>
+                            </li>
+                        })
+                    }
+                </ul>
+            </nav>
+        </header>
+        <hr class="border-gray-200 from-gray-100 to-gray-200 h-1 w-full" >
+		<main class="px-20 py-16 h-full w-full" >
+            <slot></slot>
+        </main>
+        <footer class="fixed bottom-0 left-0 right-0 px-8 py-4" >
+            <p class="text-center text-sm text-gray-500" >Copyright &copy; 2025 Thirdshop. All rights reserved.</p>
+        </footer>
+	</body>
+</html>
