@@ -1,17 +1,28 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
+const DEFAULT_LOCALE = "en";
+
+// https://astro.build/confi
 export default defineConfig({
     vite: {    
         plugins: [tailwindcss()],  
     },
     i18n: {
         locales: ["en", "fr"],
-        defaultLocale: "en",
+        defaultLocale: DEFAULT_LOCALE,
         routing: {
-            prefixDefaultLocale: true
+            prefixDefaultLocale: true,
+            fallbackType: "rewrite"
+        },
+        fallback: {
+            fr: DEFAULT_LOCALE
+        }
+    },
+    env: {
+        schema: {
+            DEFAULT_LOCALE: envField.string({ context: "client", access: "public", default: DEFAULT_LOCALE }),
         }
     }
 });

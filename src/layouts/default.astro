@@ -1,27 +1,33 @@
 ---
+import { ClientRouter } from "astro:transitions";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import "../styles/global.css";
 
 const AppName = "Thirdshop";
 
-const links = [
+const currentLocale = Astro.currentLocale || "en";
+
+type Link = {
+    href: string;
+    title: string;
+}
+
+const links: Link[] = [
     {
-        href: "/",
-        title: "Accueil"
-    },
-    {
-        href: "/applications",
-        title: "Applications"
+        href: getRelativeLocaleUrl(currentLocale, "/"),
+        title: "Home"
     }
-]
+];
 ---
 
-<html lang="en">
+<html lang={currentLocale}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{AppName}</title>
+        <ClientRouter />
 	</head>
 	<body class="h-screen w-screen overflow-y-auto overflow-x-hidden" >
         <header class="fixed px-4 md:px-10 lg:px-20 py-4 right-0 left-0 top-0 flex flex-row items-center bg-white/80 backdrop-blur-md z-50 border-b border-gray-200" >

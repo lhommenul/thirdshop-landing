@@ -1,5 +1,8 @@
 ---
 import Layout from "@/layouts/default.astro"
+import { DEFAULT_LOCALE } from "astro:env/client";
+
+const currentLocale = Astro.currentLocale || DEFAULT_LOCALE;
 
 const programs = [
 	{
@@ -35,10 +38,17 @@ const programs = [
 		<h2 class="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-semibold font-serif" >
 			Free, Open Source, P2P Applications, for everyone.
 		</h2>
-		<div class="flex flex-col md:flex-row gap-4" >
-			<p class="font-serif text-sm md:text-base" >Thirdshop is a organization that creates and shares documentation, communication, and marketplace applications. We believe in the power of <strong class="font-bold" >open source</strong> and the importance of community. <strong class="font-bold" >P2P applications</strong> are the future of the internet and we are here to make it happen.</p>
-			<a href="/" class="bg-violet-500 hover:bg-violet-600 transition-colors text-white px-4 py-2 rounded-md text-nowrap flex justify-center items-center text-sm md:text-base" >Join the community</a>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4" >
+			<div class="flex flex-col md:flex-row gap-4" >
+				<p class="font-serif text-sm md:text-base" >Thirdshop is a organization that creates and shares documentation, communication, and marketplace applications. We believe in the power of <strong class="font-bold" >open source</strong> and the importance of community. <strong class="font-bold" >P2P applications</strong> are the future of the internet and we are here to make it happen.</p>
+				<!-- <a href="/" class="bg-violet-500 hover:bg-violet-600 transition-colors text-white px-4 py-2 rounded-md text-nowrap flex justify-center items-center text-sm md:text-base" >Join the community</a> -->
+			</div>
+			<div class="flex flex-col md:flex-row gap-4" >
+				<p class="font-serif text-sm md:text-base" >Thirdshop is a organization that creates and shares documentation, communication, and marketplace applications. We believe in the power of <strong class="font-bold" >open source</strong> and the importance of community. <strong class="font-bold" >P2P applications</strong> are the future of the internet and we are here to make it happen.</p>
+				<!-- <a href="/" class="bg-violet-500 hover:bg-violet-600 transition-colors text-white px-4 py-2 rounded-md text-nowrap flex justify-center items-center text-sm md:text-base" >Join the community</a> -->
+			</div>
 		</div>
+
 	</section>
 
 	<section class="mt-auto" >
@@ -51,7 +61,7 @@ const programs = [
 						<p class={program.textColor + " text-xs md:text-sm opacity-80 group-hover:opacity-60 transition-opacity" } >{program.details}</p>
 						
 						<div class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-							<a href={`/applications/${program.slug}`} class="bg-violet-500 hover:bg-violet-600 text-white px-6 py-3 rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300 shadow-lg hover:shadow-xl">
+							<a href={`/${currentLocale}/applications/${program.slug}`} class="bg-violet-500 hover:bg-violet-600 text-white px-6 py-3 rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300 shadow-lg hover:shadow-xl">
 								Learn More
 							</a>
 						</div>
