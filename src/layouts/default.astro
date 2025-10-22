@@ -30,8 +30,9 @@ const links: Link[] = [
         <header class="fixed px-4 md:px-10 lg:px-20 py-4 right-0 left-0 top-0 flex flex-row items-center bg-white/80 backdrop-blur-md z-50 border-b border-gray-200" >
             <div class="container mx-auto">
                 <h1 class="text-lg md:text-xl font-bold font-serif flex items-center gap-2" >
-                    <img src="/favicon.svg" alt="Thirdshop" class="w-8 h-8" />
-                    <a href={getRelativeLocaleUrl(currentLocale, "/")} class="hover:underline focus:underline" >Thirdshop</a>
+                    <a href={getRelativeLocaleUrl(currentLocale, "/")} aria-label="Thirdshop" class="focus:opacity-80 hover:opacity-80" >
+                        <img src="/icon-title.png" alt="Thirdshop" class="h-6 mouse-pointer" />
+                    </a>
                 </h1>
     
                 <nav class="mx-auto " >
