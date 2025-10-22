@@ -8,6 +8,7 @@ const DEFAULT_LOCALE = "en";
 
 // https://astro.build/confi
 export default defineConfig({
+    prefetch: true,
   vite: {    
       plugins: [tailwindcss()],  
   },
