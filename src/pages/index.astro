@@ -1,3 +1,8 @@
 ---
+import { DEFAULT_LOCALE } from "astro:env/client";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
+const currentLocale = Astro.currentLocale || DEFAULT_LOCALE;
+
+Astro.redirect(getRelativeLocaleUrl(currentLocale, "/"),302);
 ---
