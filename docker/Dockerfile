@@ -16,19 +16,28 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Production
-FROM nginx:alpine
+FROM node:22-alpine
 
-# Copier la configuration nginx personnalisée
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copier les fichiers statiques buildés depuis le stage précédent
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copier les fichiers de dépendances pour la production
+COPY package*.json ./
 
-# Exposer le port 80
-EXPOSE 80
+# Installer uniquement les dépendances de production
+RUN npm ci --only=production
 
-# Démarrer nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copier le build depuis le stage précédent
+COPY --from=builder /app/dist ./dist
+
+# Exposer le port 4321 (port par défaut d'Astro)
+EXPOSE 4321
+
+# Variables d'environnement
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
+# Démarrer le serveur Node.js
+CMD ["node", "./dist/server/entry.mjs"]
 
 
 
