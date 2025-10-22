@@ -15,9 +15,9 @@ Thumbs.db
 *.log
 coverage
 .cache
-docker
-Dockerfile
-.dockerignore
+# docker - Ne pas ignorer car on a besoin de nginx.conf et Dockerfile
+# Dockerfile
+# .dockerignore
 
 
 
